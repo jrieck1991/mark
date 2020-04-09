@@ -9,13 +9,13 @@ import (
 
 func init() {
 	go func() {
-		if err := Serve(":9000"); err != nil {
+		if err := serve(":9000"); err != nil {
 			fmt.Println(err)
 		}
 	}()
 }
 
-func Serve(addr string) error {
+func serve(addr string) error {
 
 	http.Handle("/metrics", promhttp.Handler())
 
