@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+package pipe;
+
+message Data {
+    bytes data = 1;
+}
+
+service Pipe {
+    rpc Ingest(stream Data) returns(google.protobuf.Empty) {}
+}

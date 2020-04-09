@@ -1,0 +1,13 @@
+global:
+  scrape_interval: 10s
+  scrape_timeout: 10s
+  evaluation_interval: 1m
+scrape_configs:
+- job_name: mark
+  honor_timestamps: true
+  metrics_path: /metrics
+  scheme: http
+  static_configs:
+  - targets:
+    - app:9000
+  

@@ -1,26 +1,33 @@
 version: '3'
 
 services:
-  app:
+  client:
     build: .
+    command: ./client
+    networks:
+      - mark
+  server:
+    build: .
+    command: ./server
     networks:
       - mark
   prometheus:
     image: prom/prometheus
     volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./metrics/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
     networks:
       - mark
     depends_on:
-      - app
+      - client
+      - server
   grafana:
     image: grafana/grafana
     volumes:
-      - ./datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
-      - ./all.yml:/etc/grafana/provisioning/dashboards/all.yml
-      - ./app_dashboard.json:/var/lib/grafana/dashboards/app_dashboard.json
+      - ./grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./grafana/all.yml:/etc/grafana/provisioning/dashboards/all.yml
+      - ./grafana/app_dashboard.json:/var/lib/grafana/dashboards/app_dashboard.json
     ports:
       - "3000:3000"
     networks:
