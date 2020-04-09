@@ -9,11 +9,9 @@ import (
 type Server struct{}
 
 const (
-	// base
-	namespace string = "app"
-	subsystem string = "server"
-
 	// metrics
+	namespace  string = "app"
+	subsystem  string = "server"
 	msgRecv    string = "message_recv"
 	bytesRecv  string = "bytes_recv"
 	recvErr    string = "recv_error"

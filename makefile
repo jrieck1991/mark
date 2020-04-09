@@ -2,12 +2,11 @@
 
 APP_NAME=mark
 
-run: clean
-	docker-compose build
+run: clean build
 	docker-compose up -d
 
 clean:
 	docker-compose down
 
 build:
-	docker build -t $(APP_NAME) .
+	docker-compose build
