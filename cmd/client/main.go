@@ -12,7 +12,7 @@ import (
 
 const (
 	serverAddr  string = "server:7777"
-	metricsAddr string = ":8888"
+	metricsAddr string = ":9000"
 
 	// metrics
 	namespace string = "app"
