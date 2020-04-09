@@ -2,7 +2,7 @@
 
 APP_NAME=mark
 
-run: build
+run: clean build
 	docker-compose up -d
 
 clean:
