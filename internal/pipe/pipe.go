@@ -20,12 +20,15 @@ const (
 	recvErrEOF string = "recv_error_eof"
 )
 
+// Ingest data
 func (s *Server) Ingest(srv Pipe_IngestServer) error {
 
+	// init metric counters
 	counters := metrics.Counters(namespace, subsystem, []string{
-		msgSent, bytesSent, recvErr, recvErrEOF,
+		msgRecv, bytesRecv, recvErr, recvErrEOF,
 	})
 
+	// receive data
 	for {
 
 		data, err := srv.Recv()
