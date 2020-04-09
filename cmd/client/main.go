@@ -2,43 +2,37 @@ package main
 
 import (
 	"context"
-	"crypto/rand"
-	"fmt"
-	"sandbox/grpc/pipe"
 
+	"github.com/jrieck1991/mark/pipe"
 	"google.golang.org/grpc"
 )
 
-const (
-	addr        = "localhost:7777"
-	payloadSize = 32
-	numReqs     = 1000
-)
+const addr = "localhost:7777"
 
 func main() {
 
-	conn, err := grpc.Dial(addr, grpc.WithInsecure())
-	if err != nil {
-		panic(err)
-	}
-	defer conn.Close()
-
-	c := pipe.NewPipeClient(conn)
-
-	ingestClient, err := c.Ingest(context.TODO())
+	conn, err := grpc.Dial(addr)
 	if err != nil {
 		panic(err)
 	}
 
-	for i := 0; i < numReqs; i++ {
+	pipeClient := pipe.NewPipeClient(conn)
 
-		payload := make([]byte, payloadSize)
-		rand.Read(payload)
+	client, err := pipeClient.Ingest(context.Background())
+	if err != nil {
+		panic(err)
+	}
+	defer client.CloseSend()
 
-		if err := ingestClient.Send(&pipe.Data{Data: payload}); err != nil {
+	fmt.Println("init complete")
+	for {
+		
+		d := &pipe.Data{
+			Data: make([]byte, 1000)
+		}
+
+		if err := client.Send(d); err != nil {
 			panic(err)
 		}
-		fmt.Printf("client: sent payload %d sucess\n", i)
 	}
-
 }
