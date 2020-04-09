@@ -3,6 +3,7 @@ package main
 import (
 	"net"
 
+	_ "github.com/jrieck1991/mark/internal/metrics"
 	"github.com/jrieck1991/mark/internal/pipe"
 
 	"google.golang.org/grpc"
