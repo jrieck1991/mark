@@ -19,6 +19,7 @@ const (
 	subsystem string = "client"
 	msgSent   string = "message_sent"
 	bytesSent string = "bytes_sent"
+	sendErr   string = "send_error"
 )
 
 func main() {
@@ -31,7 +32,7 @@ func main() {
 	}()
 
 	// get metric counters
-	counters := metrics.Counters(namespace, subsystem, []string{msgSent, bytesSent})
+	counters := metrics.Counters(namespace, subsystem, []string{msgSent, bytesSent, sendErr})
 
 	// dial server
 	conn, err := grpc.Dial(serverAddr, grpc.WithInsecure())
@@ -57,7 +58,8 @@ func main() {
 		}
 
 		if err := client.Send(d); err != nil {
-			panic(err)
+			fmt.Println(err)
+			counters[sendErr].Inc()
 		}
 
 		counters[msgSent].Inc()
