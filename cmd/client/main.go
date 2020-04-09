@@ -17,7 +17,8 @@ const (
 	// metrics
 	namespace string = "app"
 	subsystem string = "client"
-	msgSent   string = "msg_sent"
+	msgSent   string = "message_sent"
+	bytesSent string = "bytes_sent"
 )
 
 func main() {
@@ -29,15 +30,17 @@ func main() {
 		}
 	}()
 
-	counters := metrics.Counters(namespace, subsystem, []string{})
+	// get metric counters
+	counters := metrics.Counters(namespace, subsystem, []string{msgSent, bytesSent})
 
+	// dial server
 	conn, err := grpc.Dial(serverAddr, grpc.WithInsecure())
 	if err != nil {
 		panic(err)
 	}
-
 	pipeClient := pipe.NewPipeClient(conn)
 
+	// get Ingest client
 	client, err := pipeClient.Ingest(context.Background())
 	if err != nil {
 		panic(err)
@@ -45,6 +48,8 @@ func main() {
 	defer client.CloseSend()
 
 	fmt.Println("init complete")
+
+	// send data to server
 	for {
 
 		d := &pipe.Data{
@@ -54,6 +59,9 @@ func main() {
 		if err := client.Send(d); err != nil {
 			panic(err)
 		}
+
 		counters[msgSent].Inc()
+
+		counters[bytesSent].Add(float64(len(d.GetData())))
 	}
 }
