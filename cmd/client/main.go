@@ -5,11 +5,11 @@ import (
 
 	"fmt"
 
-	"github.com/jrieck1991/mark/pipe"
+	"github.com/jrieck1991/mark/internal/pipe"
 	"google.golang.org/grpc"
 )
 
-const addr = "localhost:7777"
+const addr = "server:7777"
 
 func main() {
 

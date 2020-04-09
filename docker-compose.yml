@@ -1,7 +1,11 @@
 version: '3'
 
 services:
-  app:
+  client:
+    image: mark:latest
+    networks:
+      - mark
+  server:
     image: mark:latest
     networks:
       - mark
@@ -14,13 +18,14 @@ services:
     networks:
       - mark
     depends_on:
-      - app
+      - client
+      - server
   grafana:
     image: grafana/grafana
     volumes:
-      - ./metrics/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
-      - ./metrics/grafana/all.yml:/etc/grafana/provisioning/dashboards/all.yml
-      - ./metrics/grafana/app_dashboard.json:/var/lib/grafana/dashboards/app_dashboard.json
+      - ./grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./grafana/all.yml:/etc/grafana/provisioning/dashboards/all.yml
+      - ./grafana/app_dashboard.json:/var/lib/grafana/dashboards/app_dashboard.json
     ports:
       - "3000:3000"
     networks:
