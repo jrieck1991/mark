@@ -1,21 +1,15 @@
 package metrics
 
 import (
-	"fmt"
 	"net/http"
 
+	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/promauto"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
-func init() {
-	go func() {
-		if err := serve(":9000"); err != nil {
-			fmt.Println(err)
-		}
-	}()
-}
-
-func serve(addr string) error {
+// Serve exposes metrics via http on the provided addr
+func Serve(addr string) error {
 
 	http.Handle("/metrics", promhttp.Handler())
 
@@ -24,4 +18,18 @@ func serve(addr string) error {
 	}
 
 	return nil
+}
+
+// Counters returns a map of counters from given names
+func Counters(namespace, subsystem string, names []string) map[string]prometheus.Counter {
+
+	counters := make(map[string]prometheus.Counter)
+	for _, n := range names {
+		counters[name] = promauto.NewCounter(prometheus.CounterOpts{
+			Namespace: namespace,
+			Subsystem: subsystem,
+			Name:      name,
+	})
+
+	return counters
 }
