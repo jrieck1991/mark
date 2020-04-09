@@ -1,16 +1,18 @@
 version: '3'
 
 services:
-  client:
-    build: .
-    command: ./client
-    networks:
-      - mark
   server:
     build: .
     command: ./server
     networks:
       - mark
+  client:
+    build: .
+    command: ./client
+    networks:
+      - mark
+    depends_on:
+      - server
   prometheus:
     image: prom/prometheus
     volumes:
