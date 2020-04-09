@@ -58,12 +58,18 @@ func main() {
 		}
 
 		if err := client.Send(d); err != nil {
-			fmt.Println(err)
+
+			// counter send_error
 			counters[sendErr].Inc()
+
+			fmt.Println(err)
+			continue
 		}
 
+		// counter message_sent
 		counters[msgSent].Inc()
 
+		// counter bytes_sent
 		counters[bytesSent].Add(float64(len(d.GetData())))
 	}
 }
