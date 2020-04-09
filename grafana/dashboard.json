@@ -300,6 +300,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "description": "server messages received rate",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -346,7 +347,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Server Messages Received",
+      "title": "Server Messages Received Rate",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -362,6 +363,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:126",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -370,6 +372,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:127",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -389,6 +392,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "description": "server receive error EOF from client per second",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -435,7 +439,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Server Receive EOF",
+      "title": "Server Receive EOF Rate",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -451,6 +455,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:221",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -459,6 +464,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:222",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -478,6 +484,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "description": "server receive errors per second",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -524,7 +531,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Server Receive Error",
+      "title": "Server Receive Error Rate",
       "tooltip": {
         "shared": true,
         "sort": 0,
