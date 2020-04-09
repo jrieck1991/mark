@@ -19,14 +19,16 @@
   "links": [],
   "panels": [
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "{instance=\"client:8888\",job=\"mark\"}": "blue"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
       "description": "client bytes sent per second",
       "fill": 1,
-      "fillGradient": 0,
+      "fillGradient": 4,
       "gridPos": {
         "h": 8,
         "w": 12,
@@ -77,6 +79,7 @@
         "sort": 0,
         "value_type": "individual"
       },
+      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -111,7 +114,9 @@
       }
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "{instance=\"server:9000\",job=\"mark\"}": "yellow"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
@@ -169,6 +174,7 @@
         "sort": 0,
         "value_type": "individual"
       },
+      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -203,14 +209,16 @@
       }
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "{instance=\"client:8888\",job=\"mark\"}": "blue"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
       "description": "client messages sent per second",
       "fill": 1,
-      "fillGradient": 0,
+      "fillGradient": 4,
       "gridPos": {
         "h": 8,
         "w": 12,
@@ -261,6 +269,7 @@
         "sort": 0,
         "value_type": "individual"
       },
+      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -295,14 +304,16 @@
       }
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "{instance=\"server:9000\",job=\"mark\"}": "yellow"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
       "description": "server messages received rate",
       "fill": 1,
-      "fillGradient": 0,
+      "fillGradient": 4,
       "gridPos": {
         "h": 8,
         "w": 12,
@@ -353,6 +364,7 @@
         "sort": 0,
         "value_type": "individual"
       },
+      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -387,14 +399,16 @@
       }
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "{instance=\"server:9000\",job=\"mark\"}": "semi-dark-red"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
       "description": "server receive error EOF from client per second",
       "fill": 1,
-      "fillGradient": 0,
+      "fillGradient": 4,
       "gridPos": {
         "h": 8,
         "w": 12,
@@ -445,6 +459,7 @@
         "sort": 0,
         "value_type": "individual"
       },
+      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -479,14 +494,16 @@
       }
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "{instance=\"server:9000\",job=\"mark\"}": "semi-dark-red"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
       "description": "server receive errors per second",
       "fill": 1,
-      "fillGradient": 0,
+      "fillGradient": 4,
       "gridPos": {
         "h": 8,
         "w": 12,
@@ -537,6 +554,7 @@
         "sort": 0,
         "value_type": "individual"
       },
+      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -547,6 +565,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:840",
           "decimals": null,
           "format": "short",
           "label": null,
@@ -556,6 +575,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:841",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -570,6 +590,7 @@
       }
     }
   ],
+  "refresh": "5s",
   "schemaVersion": 22,
   "style": "dark",
   "tags": [],
