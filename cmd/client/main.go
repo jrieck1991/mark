@@ -17,6 +17,7 @@ const (
 	// metrics
 	namespace string = "app"
 	subsystem string = "client"
+	msgSent   string = "msg_sent"
 )
 
 func main() {
@@ -53,5 +54,6 @@ func main() {
 		if err := client.Send(d); err != nil {
 			panic(err)
 		}
+		counters[msgSent].Inc()
 	}
 }
