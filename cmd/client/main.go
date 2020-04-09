@@ -3,6 +3,8 @@ package main
 import (
 	"context"
 
+	"fmt"
+
 	"github.com/jrieck1991/mark/pipe"
 	"google.golang.org/grpc"
 )
@@ -26,9 +28,9 @@ func main() {
 
 	fmt.Println("init complete")
 	for {
-		
+
 		d := &pipe.Data{
-			Data: make([]byte, 1000)
+			Data: make([]byte, 1000),
 		}
 
 		if err := client.Send(d); err != nil {

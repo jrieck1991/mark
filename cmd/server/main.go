@@ -2,7 +2,8 @@ package main
 
 import (
 	"net"
-	"sandbox/grpc/pipe"
+
+	"github.com/jrieck1991/mark/pipe"
 
 	"google.golang.org/grpc"
 )
