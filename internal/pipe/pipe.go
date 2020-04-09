@@ -14,8 +14,8 @@ const (
 	subsystem string = "server"
 
 	// metrics
-	msgSent    string = "message_sent"
-	bytesSent  string = "bytes_sent"
+	msgRecv    string = "message_recv"
+	bytesRecv  string = "bytes_recv"
 	recvErr    string = "recv_error"
 	recvErrEOF string = "recv_error_eof"
 )
@@ -39,9 +39,9 @@ func (s *Server) Ingest(srv Pipe_IngestServer) error {
 		}
 
 		// record message sent
-		counters[msgSent].Inc()
+		counters[msgRecv].Inc()
 
 		// record bytes
-		counters[bytesSent].Add(float64(len(data.GetData())))
+		counters[bytesRecv].Add(float64(len(data.GetData())))
 	}
 }
