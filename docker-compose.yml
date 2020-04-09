@@ -2,11 +2,13 @@ version: '3'
 
 services:
   client:
-    image: mark:latest
+    build: .
+    command: ./client
     networks:
       - mark
   server:
-    image: mark:latest
+    build: .
+    command: ./server
     networks:
       - mark
   prometheus:

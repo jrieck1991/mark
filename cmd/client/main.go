@@ -13,7 +13,7 @@ const addr = "server:7777"
 
 func main() {
 
-	conn, err := grpc.Dial(addr)
+	conn, err := grpc.Dial(addr, grpc.WithInsecure())
 	if err != nil {
 		panic(err)
 	}
