@@ -10,3 +10,4 @@ scrape_configs:
   static_configs:
   - targets:
     - server:9000
+    - client:9000
