@@ -24,12 +24,14 @@ func Serve(addr string) error {
 func Counters(namespace, subsystem string, names []string) map[string]prometheus.Counter {
 
 	counters := make(map[string]prometheus.Counter)
-	for _, n := range names {
+
+	for _, name := range names {
 		counters[name] = promauto.NewCounter(prometheus.CounterOpts{
 			Namespace: namespace,
 			Subsystem: subsystem,
 			Name:      name,
-	})
+		})
+	}
 
 	return counters
 }

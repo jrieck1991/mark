@@ -40,6 +40,6 @@ func (s *Server) Ingest(srv Pipe_IngestServer) error {
 		counters[msgSent].Inc()
 
 		// record bytes
-		counters[bytesSent].Inc()
+		counters[bytesSent].Add(float64(len(data.GetData())))
 	}
 }
