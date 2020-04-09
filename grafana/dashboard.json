@@ -20,7 +20,8 @@
   "panels": [
     {
       "aliasColors": {
-        "{instance=\"client:8888\",job=\"mark\"}": "blue"
+        "{instance=\"client:8888\",job=\"mark\"}": "blue",
+        "{instance=\"client:9000\",job=\"mark\"}": "blue"
       },
       "bars": false,
       "dashLength": 10,
@@ -210,7 +211,8 @@
     },
     {
       "aliasColors": {
-        "{instance=\"client:8888\",job=\"mark\"}": "blue"
+        "{instance=\"client:8888\",job=\"mark\"}": "blue",
+        "{instance=\"client:9000\",job=\"mark\"}": "blue"
       },
       "bars": false,
       "dashLength": 10,
@@ -400,7 +402,8 @@
     },
     {
       "aliasColors": {
-        "{instance=\"client:8888\",job=\"mark\"}": "semi-dark-red"
+        "{instance=\"client:8888\",job=\"mark\"}": "semi-dark-red",
+        "{instance=\"client:9000\",job=\"mark\"}": "semi-dark-red"
       },
       "bars": false,
       "dashLength": 10,
