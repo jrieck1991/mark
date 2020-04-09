@@ -11,4 +11,3 @@ scrape_configs:
   - targets:
     - client:9000
     - server:9000
-  
