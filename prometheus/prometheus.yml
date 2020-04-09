@@ -9,5 +9,5 @@ scrape_configs:
   scheme: http
   static_configs:
   - targets:
-    - app:9000
-  
+    - client:9000
+    - server:9000
