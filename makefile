@@ -9,4 +9,4 @@ clean:
 	docker-compose down
 
 build:
-	docker build -t $(APP_NAME) .
+	docker-compose build
